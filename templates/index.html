@@ -29,6 +29,8 @@
 </head>
 
 <body>
+
+
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -74,6 +76,17 @@
                   <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
                 </form> -->
               </div>
+
+              {% if messages == "No file part" %}
+                <script>alert("没有选择文件")</script>
+                <!-- <script type='text/javascript'>window.location.href="{{ url_for('index') }}"</script> -->
+              {% elif messages == "No selected file" %}
+                <script>alert("没有文件或文件名字错误")</script>
+              {% elif messages == "successfully" %}
+                <script>alert("上传成功！")</script>
+                <!-- <script type='text/javascript'>window.location.href="{{ url_for('index') }}"</script> -->
+              {% endif %}   
+
             </div>
           </div>
         </nav>
@@ -97,20 +110,24 @@
                   <div class="detail-box">
                     <div>
                       <h2>
+                        模型AR展示网站
+                      </h2>
+                      <h1>
                         关于nvidiffrenc
-                      </h2>
-                      <h1>
-                        模型AR展示网站
                       </h1>
                       <p>
                         本网站是基于nvdiffrenc和ARcore网页接口的模型AR浏览网站
                       </p>
                       <!-- 上传图片 -->
-                      <div class="">
+                      <form action="" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file"  />
+                        <input type="submit" value="提交" />
+                      </form>
+                      <!-- <div class="">
                         <a href="">
                           Contact us
                         </a>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -122,20 +139,19 @@
                   <div class="detail-box">
                     <div>
                       <h2>
+                        模型AR展示网站
+                      </h2>
+                      <h1>
                         关于ARcore
-                      </h2>
-                      <h1>
-                        模型AR展示网站
                       </h1>
                       <p>
                         本网站是基于nvdiffrenc和ARcore网页接口的模型AR浏览网站
                       </p>
                       <!-- 上传图片 -->
-                      <div class="">
-                        <a href="">
-                          Contact us
-                        </a>
-                      </div>
+                      <form action="" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file"  />
+                        <input type="submit" value="提交" />
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -147,20 +163,19 @@
                   <div class="detail-box">
                     <div>
                       <h2>
-                        关于本网站的前端
+                        模型AR展示网站
                       </h2>
                       <h1>
-                        模型AR展示网站
+                        关于本网站的前端
                       </h1>
                       <p>
                         本网站是基于nvdiffrenc和ARcore网页接口的模型AR浏览网站
                       </p>
                       <!-- 上传图片 -->
-                      <div class="">
-                        <a href="">
-                          Contact us
-                        </a>
-                      </div>
+                      <form action="" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file"  />
+                        <input type="submit" value="提交" />
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -173,6 +188,8 @@
     </section>
     <!-- end slider section -->
   </div>
+
+
 
   <!-- do section -->
   <section class="do_section layout_padding">
@@ -309,7 +326,7 @@
   </section>
   <!-- end work section -->
 
-  <!-- client section -->
+  <!-- client section 全部换成模型 -->
   <section class="client_section">
     <div class="container">
       <div class="heading_container">
@@ -321,11 +338,11 @@
         <div class="owl-carousel">
           <div class="item">
             <div class="box">
-              <div class="img-box">
+              <!-- <div class="img-box">
                 <img src="{{ url_for('static', filename='images/c-1.png') }}" alt="">
-              </div>
+              </div> -->
               <div class="detail-box">
-                <h5>
+                <!-- <h5>
                   Tempor incididunt <br>
                   <span>
                     Dipiscing elit
@@ -334,7 +351,13 @@
                 <img src="{{ url_for('static', filename='images/quote.png') }}" alt="">
                 <p>
                   Dipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                </p>
+                </p> -->
+                <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+                <model-viewer src="{{ url_for('static', filename='mesh/mesh.glb') }}"
+                              ar-modes="quick-look" 
+                              ar
+                              auto-rotate
+                              camera-controls></model-viewer>
               </div>
             </div>
           </div>

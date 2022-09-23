@@ -79,7 +79,6 @@
 	</div>
 
 	<h1>login Form </h1>
-
 	<div class="login box box--big">
 		<!-- form starts here -->
 		<form action="#" method="post">
@@ -123,6 +122,17 @@
 				<div class="clearfix"></div>
 			</div>
 		</form>
+
+		{% if messages == "none input" %}
+			<script>alert("未输入")</script>
+		{% elif messages == "Login success" %}
+			<script>alert("登录成功")</script>
+			<script type='text/javascript'>window.location.href="{{ url_for('index') }}"</script>
+		{% elif messages == "Invalid username or password" %}
+			<script>alert("用户名或密码错误")</script>
+			<!-- <script type='text/javascript'>window.location.href="{{ url_for('index') }}"</script> -->
+		{% endif %}   
+
 	</div>
 	<!-- //form ends here -->
 
